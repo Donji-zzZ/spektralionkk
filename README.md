@@ -7,6 +7,16 @@ grain, halation and DIR couplers, in a Lightroom-style editor. Built on the
 
 English · [简体中文](README.zh-CN.md)
 
+<p align="center">
+  <a href="https://github.com/Donji-zzZ/spektralionkk/releases/download/v1.4.0/spektralionkk-1.4.0-setup.exe"><img src="docs/images/download-windows.svg" alt="Download for Windows" width="300"></a>
+  &nbsp;
+  <a href="https://github.com/Donji-zzZ/spektralionkk/releases/download/v1.4.0/spektralionkk-1.4.0-macos-arm64.dmg"><img src="docs/images/download-mac.svg" alt="Download for Mac" width="300"></a>
+</p>
+<p align="center">
+  <b>Windows</b> 10 / 11, 64-bit · 124 MB &nbsp;&nbsp;|&nbsp;&nbsp; <b>Mac</b> with Apple silicon (M1 or newer), macOS 14+ · 161 MB<br>
+  Version 1.4.0 · <a href="#macos">How to open it on a Mac</a> · <a href="https://github.com/Donji-zzZ/spektralionkk/releases">All versions</a>
+</p>
+
 ![spektralionkk](docs/images/screenshot-en.png)
 
 ## Features

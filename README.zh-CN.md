@@ -6,6 +6,16 @@
 
 [English](README.md) · 简体中文
 
+<p align="center">
+  <a href="https://github.com/Donji-zzZ/spektralionkk/releases/download/v1.4.0/spektralionkk-1.4.0-setup.exe"><img src="docs/images/download-windows-zh.svg" alt="下载 Windows 版" width="300"></a>
+  &nbsp;
+  <a href="https://github.com/Donji-zzZ/spektralionkk/releases/download/v1.4.0/spektralionkk-1.4.0-macos-arm64.dmg"><img src="docs/images/download-mac-zh.svg" alt="下载 Mac 版" width="300"></a>
+</p>
+<p align="center">
+  <b>Windows</b> 10 / 11 64 位 · 124 MB &nbsp;&nbsp;|&nbsp;&nbsp; <b>Mac</b> Apple 芯片（M1 或更新）、macOS 14 以上 · 161 MB<br>
+  版本 1.4.0 · <a href="#macos">如何在 Mac 上打开</a> · <a href="https://github.com/Donji-zzZ/spektralionkk/releases">所有版本</a>
+</p>
+
 ![spektralionkk](docs/images/screenshot-zh.png)
 
 ## 功能

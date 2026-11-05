@@ -1,9 +1,21 @@
 # sprktralionkk
 
+**English** | [简体中文](README.zh-CN.md)
+
 Spectral film and print simulation for Windows: a darkroom-style photo editor built on the
 [spektrafilm](https://github.com/andreavolpato/spektrafilm) engine by Andrea Volpato.
 
 English and 简体中文 interface. Free software under the [GNU GPL v3](LICENSE).
+
+## Download
+
+**[Download the sprktralionkk 1.4.0 installer for Windows](https://github.com/Donji-zzZ/sprktralionkk/releases/download/v1.4.0/sprktralionkk-1.4.0-setup.exe)** (124 MB)
+
+All versions are on the [Releases page](https://github.com/Donji-zzZ/sprktralionkk/releases), which also
+has source code archives.
+
+The installer is not code-signed, so Windows SmartScreen may show a warning: choose **More info**, then
+**Run anyway**.
 
 ## What it adds to spektrafilm
 

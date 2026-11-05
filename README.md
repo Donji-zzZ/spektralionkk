@@ -17,9 +17,6 @@ has source code archives.
 The installer is not code-signed, so Windows SmartScreen may show a warning: choose **More info**, then
 **Run anyway**.
 
-Version 1.4.0 was built before the project was renamed, so once installed it still shows its old name,
-sprktralionkk.
-
 ## What it adds to spektrafilm
 
 - **A redesigned interface** in a Lightroom-style layout: navigator, looks, history, filmstrip,

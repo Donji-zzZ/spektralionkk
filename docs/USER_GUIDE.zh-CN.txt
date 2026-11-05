@@ -70,11 +70,11 @@ spektralionkk 1.4 —— 适用于 Windows 的光谱胶片与印放模拟
   相机风格（GR、徕卡和富士风格）是用本软件的胶片模拟和后期工具做出的近似效果，并非厂商的官方配置。
   spektralionkk 与理光、徕卡或富士均无关联。
 
-检查电脑：  开始菜单中的“sprktralionkk self-test”（或 sprktralionkk.exe --selftest）。
-你的修改：  %LOCALAPPDATA%\sprktralionkk\library.json（日志：sprktralionkk.log）
-LUT：       %LOCALAPPDATA%\sprktralionkk\luts（文件 ▸ 打开预设与 LUT 文件夹）
+检查电脑：  开始菜单中的“spektralionkk self-test”（或 spektralionkk.exe --selftest）。
+你的修改：  %LOCALAPPDATA%\spektralionkk\library.json（日志：spektralionkk.log）
+LUT：       %LOCALAPPDATA%\spektralionkk\luts（文件 ▸ 打开预设与 LUT 文件夹）
 
 致谢与许可
   胶片模拟引擎：Andrea Volpato 的 spektrafilm，https://github.com/andreavolpato/spektrafilm
-  完整的致谢与许可信息见英文使用说明 USER_GUIDE.txt 的“Credits & licences”一节。
+  完整的致谢与许可信息见英文使用说明 app/README-spektralionkk.txt 的“Credits & licences”一节。
   spektralionkk 是遵循 GNU GPL v3 的自由软件（见 LICENSE）。如果你分发它，也必须同时提供源代码。

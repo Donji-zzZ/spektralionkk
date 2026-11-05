@@ -1,11 +1,25 @@
-# Versions shipped in spektralionkk 1.4.0. Python 3.13 is required.
-spektrafilm @ git+https://github.com/andreavolpato/spektrafilm.git@3bb2c2d2801ff68b92019cf1dbcbb133d60832bc
+# spektralionkk runtime dependencies — Python 3.13; Windows x64, or macOS 14+ on Apple silicon.
+#   Windows:  py -3.13 -m venv .venv  &&  .venv\Scripts\python.exe -m pip install -r requirements.txt
+#   macOS:    python3.13 -m venv .venv  &&  .venv/bin/pip install -r requirements.txt
+# Versions are the ones the 1.4.0 release was built and tested with.
+
+# Film simulation engine (GPL-3.0; film / paper profiles CC BY-SA 4.0), pinned to the tested commit.
+# Installing it also pulls in its own optional GUI packages (napari etc.); this app does not use them.
+spektrafilm @ https://github.com/andreavolpato/spektrafilm/archive/3bb2c2d2801ff68b92019cf1dbcbb133d60832bc.zip
+
 PySide6==6.12.0
 numpy==2.5.4
 numba==0.68.1
+llvmlite==0.50.0
+scipy==1.18.1
+scikit-image==0.26.0
 colour-science==0.4.7
-opt-einsum==3.4.0
+opt_einsum==3.4.0
+pillow==12.3.0
 rawpy==0.26.1
 exiv2==0.18.1
-scipy
-Pillow
+lensfunpy==1.18.0
+openimageio==3.1.19.0
+pyfftw==0.15.1
+imageio==2.38.1
+tifffile==2026.10.15

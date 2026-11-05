@@ -1,0 +1,17 @@
+* text=auto
+
+# Windows-only scripts and installer sources keep CRLF
+*.ps1 text eol=crlf
+*.iss text eol=crlf
+*.isl text eol=crlf
+
+# Shell scripts and macOS / CI files keep LF, whatever system they are checked out on
+*.sh text eol=lf
+*.plist text eol=lf
+*.yml text eol=lf
+
+*.ttf binary
+*.ico binary
+*.icns binary
+*.png binary
+*.jpg binary

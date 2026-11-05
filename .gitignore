@@ -1,8 +1,24 @@
+# Python
 __pycache__/
 *.py[cod]
 .venv/
 venv/
+
+# numba caches
+*.nbi
+*.nbc
+
+# build outputs (build.ps1)
 build/
 dist/
+release/
+*.spec.bak
+
+# tests
+app/tests/out/
+rawsamples/
+
+# misc
 *.log
-*.exe
+.DS_Store
+Thumbs.db

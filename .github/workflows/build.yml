@@ -1,0 +1,139 @@
+# Builds spektralionkk on GitHub's computers - the macOS version needs a Mac, so it is made here.
+#
+#   * Publishing a release (Releases > Draft a new release > Publish release) builds the macOS disk image and
+#     attaches it to that release, next to the files you uploaded (about 20-30 minutes later).
+#   * Actions > Build > Run workflow builds it at any time; the files are under "Artifacts" on the run's page.
+#     Tick "Also build the Windows installer" to get that as well.
+#
+# Optional, for a Mac app that opens with a plain double-click (needs an Apple Developer account): add these
+# repository secrets under Settings > Secrets and variables > Actions -
+#   MACOS_CERTIFICATE           your "Developer ID Application" certificate exported as .p12, base64-encoded
+#   MACOS_CERTIFICATE_PASSWORD  the password of that .p12
+#   MACOS_SIGN_IDENTITY         e.g. Developer ID Application: Your Name (TEAMID)
+#   APPLE_ID, APPLE_TEAM_ID, APPLE_APP_PASSWORD   for notarisation (an app-specific password from account.apple.com)
+# Without them the app is signed ad hoc and macOS asks people to confirm it once (the disk image shows how).
+name: Build
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      windows:
+        description: "Also build the Windows installer"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  macos:
+    name: macOS (Apple silicon)
+    runs-on: macos-latest
+    timeout-minutes: 120
+    env:
+      HAS_CERTIFICATE: ${{ secrets.MACOS_CERTIFICATE != '' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install the requirements
+        run: |
+          python -m venv .venv
+          .venv/bin/python -m pip install --upgrade pip
+          .venv/bin/python -m pip install -r requirements.txt -r requirements-build.txt
+
+      - name: Import the signing certificate
+        if: env.HAS_CERTIFICATE == 'true'
+        env:
+          MACOS_CERTIFICATE: ${{ secrets.MACOS_CERTIFICATE }}
+          MACOS_CERTIFICATE_PASSWORD: ${{ secrets.MACOS_CERTIFICATE_PASSWORD }}
+        run: |
+          KEYCHAIN="$RUNNER_TEMP/signing.keychain-db"
+          KEYCHAIN_PASSWORD="$(uuidgen)"
+          echo "$MACOS_CERTIFICATE" | base64 --decode > "$RUNNER_TEMP/certificate.p12"
+          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+          security set-keychain-settings -lut 21600 "$KEYCHAIN"
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+          security import "$RUNNER_TEMP/certificate.p12" -P "$MACOS_CERTIFICATE_PASSWORD" -A -t cert -f pkcs12 -k "$KEYCHAIN"
+          security set-key-partition-list -S apple-tool:,apple: -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+          security list-keychains -d user -s "$KEYCHAIN" $(security list-keychains -d user | tr -d '"')
+          rm -f "$RUNNER_TEMP/certificate.p12"
+
+      - name: Build the app and the disk image
+        env:
+          MACOS_SIGN_IDENTITY: ${{ secrets.MACOS_SIGN_IDENTITY }}
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          APPLE_APP_PASSWORD: ${{ secrets.APPLE_APP_PASSWORD }}
+        run: bash scripts/build_macos.sh
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: spektralionkk-macos-arm64
+          path: |
+            release/*.dmg
+            release/*.dmg.sha256
+          if-no-files-found: error
+
+  windows:
+    name: Windows
+    if: github.event_name == 'workflow_dispatch' && inputs.windows
+    runs-on: windows-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install the requirements
+        run: |
+          python -m venv .venv
+          .venv\Scripts\python.exe -m pip install --upgrade pip
+          .venv\Scripts\python.exe -m pip install -r requirements.txt -r requirements-build.txt
+
+      - name: Install Inno Setup
+        run: |
+          if (-not (Test-Path "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe")) { choco install innosetup -y --no-progress }
+
+      - name: Build the app and the installer
+        run: .\build.ps1 -RepoUrl "${{ github.server_url }}/${{ github.repository }}"
+
+      - name: Self-test of the built app
+        run: |
+          $env:LOCALAPPDATA = Join-Path $env:RUNNER_TEMP "selftest"
+          $exe = (Resolve-Path dist\spektralionkk\spektralionkk.exe).Path
+          $p = Start-Process $exe -ArgumentList "--selftest-quiet" -Wait -PassThru
+          Get-Content (Join-Path $env:LOCALAPPDATA "spektralionkk\selftest.txt")
+          if ($p.ExitCode -ne 0) { exit 1 }
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: spektralionkk-windows
+          path: release/*.exe
+          if-no-files-found: error
+
+  release:
+    name: Attach to the release
+    if: github.event_name == 'release'
+    needs: macos
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: spektralionkk-macos-arm64
+          path: out
+
+      - name: Upload the disk image
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.release.tag_name }}
+        run: gh release upload "$TAG" out/* --clobber --repo "$GITHUB_REPOSITORY"

@@ -70,6 +70,37 @@ echo "== Building the app with PyInstaller"
 rm -rf "$APP" dist/spektralionkk
 "$PY" -m PyInstaller app/spektralionkk_mac.spec --noconfirm --distpath dist --workpath build
 
+echo "== Separating the two libintl libraries"
+# exiv2 and lensfunpy each bundle a different libintl.8.dylib: GNU gettext, and glib's small proxy with the
+# g_libintl_* functions. PyInstaller gives both the same install name, so lensfunpy's glib would load exiv2's copy
+# and the app would not start. Give lensfunpy's copy a name of its own.
+LENSFUN="$APP/Contents/Frameworks/lensfunpy"
+GLIB_INTL=libintl-glib.8.dylib
+
+sign_file() {  # install_name_tool breaks a file's signature, and Apple silicon runs only signed code
+    if [ -n "$IDENTITY" ]; then
+        codesign --force --timestamp --options runtime --sign "$IDENTITY" "$1"
+    else
+        codesign --force --sign - "$1"
+    fi
+}
+
+mv "$LENSFUN/__dot__dylibs/libintl.8.dylib" "$LENSFUN/__dot__dylibs/$GLIB_INTL"
+install_name_tool -id "@loader_path/$GLIB_INTL" "$LENSFUN/__dot__dylibs/$GLIB_INTL"
+sign_file "$LENSFUN/__dot__dylibs/$GLIB_INTL"
+for f in "$LENSFUN"/__dot__dylibs/*.dylib "$LENSFUN"/*.so; do
+    old=$(otool -L "$f" | awk '/libintl\.8\.dylib/ {print $1}')
+    if [ -n "$old" ]; then
+        case "$f" in
+            *.so) new="@loader_path/__dot__dylibs/$GLIB_INTL" ;;
+            *) new="@loader_path/$GLIB_INTL" ;;
+        esac
+        echo "$(basename "$f"): $old -> $new"
+        install_name_tool -change "$old" "$new" "$f"
+        sign_file "$f"
+    fi
+done
+
 echo "== Checking the signature"
 # PyInstaller signs every file (ad hoc, or with MACOS_SIGN_IDENTITY and the hardened runtime). Apple silicon runs
 # only signed code, and macOS calls an app with a broken seal "damaged", so make sure the seal is intact.

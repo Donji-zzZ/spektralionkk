@@ -443,9 +443,9 @@ class MainWindow(QtWidgets.QMainWindow):
             return
         box = QtWidgets.QMessageBox(self)
         box.setWindowTitle(APP_NAME)
-        box.setText(tr("The language changes the next time sprktralionkk starts.") +
-                    ("\n\nThe language changes the next time sprktralionkk starts." if i18n.LANG != "en" else
-                     "\n\n界面语言将在下次启动 sprktralionkk 时切换。"))
+        box.setText(tr("The language changes the next time spektralionkk starts.") +
+                    ("\n\nThe language changes the next time spektralionkk starts." if i18n.LANG != "en" else
+                     "\n\n界面语言将在下次启动 spektralionkk 时切换。"))
         restart = box.addButton(tr("Restart now") + (" / Restart now" if i18n.LANG != "en" else " / 立即重启"),
                                 QtWidgets.QMessageBox.AcceptRole)
         box.addButton(tr("Later") + (" / Later" if i18n.LANG != "en" else " / 稍后"), QtWidgets.QMessageBox.RejectRole)

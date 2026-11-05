@@ -1,4 +1,4 @@
-sprktralionkk 1.4 — spectral film & print simulation for Windows
+spektralionkk 1.4 — spectral film & print simulation for Windows
 ==================================================================
 
 Language
@@ -54,7 +54,7 @@ Speed
 
 Presets and LUTs
   File ▸ Import Presets & LUTs… (or right-click the Looks list) reads Lightroom / Camera Raw
-  presets (.xmp, .lrtemplate), .cube LUTs and sprktralionkk presets (.sprkpreset). Imported
+  presets (.xmp, .lrtemplate), .cube LUTs and spektralionkk presets (.sprkpreset). Imported
   presets appear under My Looks. Lightroom settings without an equivalent here (e.g. Texture,
   Dehaze, masks) are skipped and listed. Export any look or the current settings as a
   .sprkpreset to share it. Effects ▸ Creative LUT ▸ Import… adds a .cube LUT to one photo.
@@ -85,7 +85,7 @@ Compressed RAW
 Looks
   Camera-inspired looks (GR-, Leica- and Fujifilm-inspired) are approximations of those styles
   made with this app's film simulation and finishing tools. They are not the manufacturers'
-  profiles, and sprktralionkk is not affiliated with Ricoh, Leica or Fujifilm.
+  profiles, and spektralionkk is not affiliated with Ricoh, Leica or Fujifilm.
 
 Check a PC:  "sprktralionkk self-test" in the Start Menu (or sprktralionkk.exe --selftest).
 Your edits:  %LOCALAPPDATA%\sprktralionkk\library.json   (log: sprktralionkk.log)
@@ -97,13 +97,13 @@ Credits & licences
   Black-and-white film profiles (Kodak Tri-X 400, T-Max 100, Ilford HP5 Plus 400, Fujifilm Neopan
   Acros 100 II), Ilford Multigrade IV RC paper and the CineStill 800T alias: SpektraLab,
     https://github.com/JamesQiu2005/SpektraLab (GPL-3.0), built from the manufacturers' published
-    datasheets — see sprktralionkk\data\NOTICE-SpektraLab-profiles.md. The workflow is also
+    datasheets — see spektralionkk\data\NOTICE-SpektraLab-profiles.md. The workflow is also
     inspired by SpektraLab.
   Interface font: Inter by Rasmus Andersson, SIL Open Font License 1.1
-    (sprktralionkk\data\fonts\Inter-LICENSE-OFL.txt).
+    (spektralionkk\data\fonts\Inter-LICENSE-OFL.txt).
   Installer: Inno Setup; Simplified Chinese installer translation from the Inno Setup project.
   Film, camera, software and brand names (including Lightroom and Camera Raw) are trademarks of
-  their owners and only identify the data, file formats or inspiration. sprktralionkk is not
+  their owners and only identify the data, file formats or inspiration. spektralionkk is not
   affiliated with any of these projects or companies.
-  sprktralionkk is free software under the GNU GPL v3 (see LICENSE). If you distribute it,
+  spektralionkk is free software under the GNU GPL v3 (see LICENSE). If you distribute it,
   you must also offer its source code.

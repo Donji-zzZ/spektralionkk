@@ -168,7 +168,7 @@ _add({
     "Exported {n} file(s)": "已导出 {n} 个文件", "Exported {n} file(s) to {folder}": "已导出 {n} 个文件到 {folder}",
     "These photos could not be exported:\n\n": "以下照片无法导出：\n\n",
     "Restart now": "立即重启", "Later": "稍后",
-    "The language changes the next time sprktralionkk starts.": "界面语言将在下次启动 sprktralionkk 时切换。",
+    "The language changes the next time spektralionkk starts.": "界面语言将在下次启动 spektralionkk 时切换。",
 })
 
 # ---------------------------------------------------------------- develop panel
@@ -383,14 +383,14 @@ _add({
     "editing the camera's embedded full-size JPEG instead.":
         "LibRaw 暂时无法解码这种 RAW 压缩（例如尼康高效率 RAW 或 JPEG XL DNG），因此你正在编辑相机内嵌的全尺寸 JPEG。",
     "Presets and LUTs (*.xmp *.lrtemplate *.cube *.sprkpreset);;Lightroom / Camera Raw presets (*.xmp *.lrtemplate);;"
-    "LUT (*.cube);;sprktralionkk preset (*.sprkpreset);;All files (*)":
+    "LUT (*.cube);;spektralionkk preset (*.sprkpreset);;All files (*)":
         "预设与 LUT (*.xmp *.lrtemplate *.cube *.sprkpreset);;Lightroom / Camera Raw 预设 (*.xmp *.lrtemplate);;"
-        "LUT (*.cube);;sprktralionkk 预设 (*.sprkpreset);;所有文件 (*)",
+        "LUT (*.cube);;spektralionkk 预设 (*.sprkpreset);;所有文件 (*)",
     "Lightroom preset (.xmp)": "Lightroom 预设（.xmp）", "Lightroom preset (.lrtemplate)": "Lightroom 预设（.lrtemplate）",
-    "sprktralionkk preset": "sprktralionkk 预设", "LUT (.cube)": "LUT（.cube）",
+    "spektralionkk preset": "spektralionkk 预设", "LUT (.cube)": "LUT（.cube）",
     "No Lightroom / Camera Raw settings found in this .xmp": "这个 .xmp 中没有 Lightroom / Camera Raw 设置",
     "No 'settings' table found in this .lrtemplate": "这个 .lrtemplate 中没有 settings 表",
-    "Not a sprktralionkk preset": "不是 sprktralionkk 预设",
+    "Not a spektralionkk preset": "不是 spektralionkk 预设",
     "Adobe creative profile (embedded colour table)": "Adobe 创意配置文件（内嵌颜色表）",
 })
 

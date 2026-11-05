@@ -1,4 +1,4 @@
-# sprktralionkk
+# spektralionkk
 
 **English** | [简体中文](README.zh-CN.md)
 
@@ -9,13 +9,16 @@ English and 简体中文 interface. Free software under the [GNU GPL v3](LICENSE
 
 ## Download
 
-**[Download the sprktralionkk 1.4.0 installer for Windows](https://github.com/Donji-zzZ/sprktralionkk/releases/download/v1.4.0/sprktralionkk-1.4.0-setup.exe)** (124 MB)
+**[Download the spektralionkk 1.4.0 installer for Windows](https://github.com/Donji-zzZ/spektralionkk/releases/download/v1.4.0/spektralionkk-1.4.0-setup.exe)** (124 MB)
 
-All versions are on the [Releases page](https://github.com/Donji-zzZ/sprktralionkk/releases), which also
+All versions are on the [Releases page](https://github.com/Donji-zzZ/spektralionkk/releases), which also
 has source code archives.
 
 The installer is not code-signed, so Windows SmartScreen may show a warning: choose **More info**, then
 **Run anyway**.
+
+Version 1.4.0 was built before the project was renamed, so once installed it still shows its old name,
+sprktralionkk.
 
 ## What it adds to spektrafilm
 
@@ -46,7 +49,7 @@ Requires Windows and Python 3.13, the version spektrafilm supports.
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
-python -m sprktralionkk.app
+python -m spektralionkk.app
 ```
 
 The first launch on a PC compiles the processing kernels, which takes about 30 seconds.
@@ -58,7 +61,7 @@ The first launch on a PC compiles the processing kernels, which takes about 30 s
   profiles CC BY-SA 4.0, see [SPEKTRAFILM_LICENSE.txt](SPEKTRAFILM_LICENSE.txt).
 - Interface font: Inter by Rasmus Andersson, SIL Open Font License 1.1.
 - Full credits for all bundled data, including the black-and-white profiles, are in the
-  [user guide](docs/USER_GUIDE.txt) and [`sprktralionkk/data/`](sprktralionkk/data/).
+  [user guide](docs/USER_GUIDE.txt) and [`spektralionkk/data/`](spektralionkk/data/).
 
 Film, camera, software and brand names are trademarks of their owners and only identify data, file
-formats or inspiration. sprktralionkk is not affiliated with any of these projects or companies.
+formats or inspiration. spektralionkk is not affiliated with any of these projects or companies.

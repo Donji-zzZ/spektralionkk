@@ -3,7 +3,7 @@
 The camera-inspired looks are approximations of the character commonly described for those
 cameras' colour modes, built from this app's film simulation and finishing tools. They are not the
 manufacturers' own profiles (those are proprietary) and the names only describe the inspiration;
-sprktralionkk is not affiliated with Ricoh, Leica or Fujifilm.
+spektralionkk is not affiliated with Ricoh, Leica or Fujifilm.
 
 A look sets the fields in settings.LOOK_FIELDS (anything not listed takes its default) and leaves
 exposure, white balance, crop and border alone.

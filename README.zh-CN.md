@@ -1,4 +1,4 @@
-# sprktralionkk
+# spektralionkk
 
 [English](README.md) | **简体中文**
 
@@ -9,11 +9,13 @@
 
 ## 下载
 
-**[下载 sprktralionkk 1.4.0 Windows 安装程序](https://github.com/Donji-zzZ/sprktralionkk/releases/download/v1.4.0/sprktralionkk-1.4.0-setup.exe)**（124 MB）
+**[下载 spektralionkk 1.4.0 Windows 安装程序](https://github.com/Donji-zzZ/spektralionkk/releases/download/v1.4.0/spektralionkk-1.4.0-setup.exe)**（124 MB）
 
-所有版本都在 [Releases 页面](https://github.com/Donji-zzZ/sprktralionkk/releases)，该页面也提供源代码压缩包。
+所有版本都在 [Releases 页面](https://github.com/Donji-zzZ/spektralionkk/releases)，该页面也提供源代码压缩包。
 
 安装程序没有代码签名，Windows SmartScreen 可能会弹出警告：点击“更多信息”，再点击“仍要运行”。
+
+1.4.0 版是在项目改名之前构建的，因此安装后仍会显示旧名称 sprktralionkk。
 
 ## 相比 spektrafilm 新增的内容
 
@@ -39,7 +41,7 @@
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
-python -m sprktralionkk.app
+python -m spektralionkk.app
 ```
 
 在一台电脑上首次启动时会编译处理内核，大约需要 30 秒。
@@ -51,7 +53,7 @@ python -m sprktralionkk.app
   见 [SPEKTRAFILM_LICENSE.txt](SPEKTRAFILM_LICENSE.txt)。
 - 界面字体：Rasmus Andersson 的 Inter，SIL Open Font License 1.1。
 - 所有内置数据（包括黑白胶片数据）的完整致谢，见[英文使用说明](docs/USER_GUIDE.txt)和
-  [`sprktralionkk/data/`](sprktralionkk/data/)。
+  [`spektralionkk/data/`](spektralionkk/data/)。
 
-胶片、相机、软件和品牌名称均为其所有者的商标，仅用于说明数据、文件格式或灵感来源。sprktralionkk 与上述项目或
+胶片、相机、软件和品牌名称均为其所有者的商标，仅用于说明数据、文件格式或灵感来源。spektralionkk 与上述项目或
 公司均无关联。

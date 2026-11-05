@@ -4,7 +4,7 @@ Supported:
 * Lightroom / Adobe Camera Raw presets (.xmp, including ones exported from Lightroom mobile)
 * Lightroom Classic legacy presets (.lrtemplate)
 * creative LUTs (.cube) — become a Look that applies the LUT
-* sprktralionkk presets (.sprkpreset, JSON) — import and export
+* spektralionkk presets (.sprkpreset, JSON) — import and export
 
 Lightroom settings are mapped to the closest controls here (Basic tone & presence, white balance,
 tone curves incl. the parametric curve, HSL, split toning / color grading, vignette, grain,
@@ -252,11 +252,11 @@ def parse_sprkpreset(path: str) -> ImportedPreset:
     with open(path, encoding="utf-8") as fh:
         data = json.load(fh)
     if data.get("format") != "sprktralionkk-preset":
-        raise ValueError("Not a sprktralionkk preset")
+        raise ValueError("Not a spektralionkk preset")
     vals = DevelopSettings.from_dict(data.get("values", {}))
     clean = {k: getattr(vals, k) for k in data.get("values", {}) if hasattr(vals, k)}
     return ImportedPreset(data.get("name") or os.path.splitext(os.path.basename(path))[0], clean, [],
-                          "sprktralionkk preset")
+                          "spektralionkk preset")
 
 
 # ------------------------------------------------------------------ entry point
@@ -264,7 +264,7 @@ def parse_sprkpreset(path: str) -> ImportedPreset:
 EXT = ".sprkpreset"
 IMPORT_FILTER = ("Presets and LUTs (*.xmp *.lrtemplate *.cube *.sprkpreset);;"
                  "Lightroom / Camera Raw presets (*.xmp *.lrtemplate);;LUT (*.cube);;"
-                 "sprktralionkk preset (*.sprkpreset);;All files (*)")
+                 "spektralionkk preset (*.sprkpreset);;All files (*)")
 
 
 def import_file(path: str) -> ImportedPreset:

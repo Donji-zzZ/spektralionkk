@@ -1,4 +1,4 @@
-# Versions shipped in sprktralionkk 1.4.0. Python 3.13 is required.
+# Versions shipped in spektralionkk 1.4.0. Python 3.13 is required.
 spektrafilm @ git+https://github.com/andreavolpato/spektrafilm.git@3bb2c2d2801ff68b92019cf1dbcbb133d60832bc
 PySide6==6.12.0
 numpy==2.5.4
